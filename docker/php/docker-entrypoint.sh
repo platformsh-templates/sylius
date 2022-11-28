@@ -7,7 +7,7 @@ if [ "${1#-}" != "$1" ]; then
 fi
 
 if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
-	mkdir -p var/cache var/log public/media
+	mkdir -p var/cache var/log var/sessions public/media
 	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
 	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
 
@@ -23,6 +23,7 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 	done
 
     bin/console doctrine:migrations:migrate --no-interaction
+    bin/console sylius:fixtures:load --no-interaction
 fi
 
 exec docker-php-entrypoint "$@"
