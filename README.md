@@ -1,58 +1,101 @@
-<br />
-<!-- Platform.sh logo left -->
-<p align="left">
-    <a href="https://platform.sh">
-        <img src="https://platform.sh/logos/redesign/Platformsh_logo_black.svg" width="150px">
-    </a>
-</p>
-<br /><br />
-<!-- Template logo -->
 <p align="center">
-    <a href="https://github.com/directus/directus">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" alt="Logo" width="300">
+    <a href="https://sylius.com" target="_blank">
+        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
     </a>
 </p>
-<!-- Template title -->
-<br/>
-<h2 align="center">Deploy Sylius on Platform.sh</h2>
 
-<!-- Deploy on Platform.sh button -->
-<br />
-<p align="center">
-    <a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/template-builder/master/templates/sylius/.platform.template.yaml&utm_content=sylius&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
-        <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="175px" />
-    </a>
-</p>
-<br/><br/>
+<h1 align="center">Sylius Standard Edition</h1>
 
-This template builds a Sylius application for Platform.sh, which can be used as a starting point for developing complex e-commerce applications.
+<p align="center">This is Sylius Standard Edition repository for starting new projects.</p>
 
-Sylius is a modern e-commerce solution for PHP, based on Symfony Framework.
+## About
 
-## Features
+Sylius is the first decoupled eCommerce framework based on [**Symfony**](http://symfony.com) and [**Doctrine**](http://doctrine-project.org). 
+The highest quality of code, strong testing culture, built-in Agile (BDD) workflow and exceptional flexibility make it the best solution for application tailored to your business requirements. 
+Enjoy being an eCommerce Developer again!
 
-- PHP 8.0
-- MySQL 10.2
-- Automatic TLS certificates
-- composer-based build
+Powerful REST API allows for easy integrations and creating unique customer experience on any device.
 
-## Post-install
+We're using full-stack Behavior-Driven-Development, with [phpspec](http://phpspec.net) and [Behat](http://behat.org)
 
-By default, Sylius ignores the `composer.lock` file in Git. Once you have deployed the template, it is a good idea to remove `composer.lock` from `.gitignore` and commit it, so that you can benefit from repeatable builds on Platform.sh.
+## Documentation
 
-## Customization
+Documentation is available at [docs.sylius.com](http://docs.sylius.com).
 
-The following changes have been made relative to a plain Sylius 1.11 project.  If using this project as a reference for your own existing project, replicate the changes below to your project.
+## Installation
 
-* The `.platform.app.yaml`, `.platform/services.yaml`, and `.platform/routes.yaml` files have been added.  These provide Platform.sh-specific configuration and are present in all projects on Platform.sh.  You may customize them as you see fit.
-* An additional Composer library, [`platformsh/symfonyflex-bridge`](https://github.com/platformsh/symfonyflex-bridge), has been added.  It automatically maps Platform.sh's environment variables to Symfony environment variables where possible.  It leverages the [`platformsh/config-reader`](https://github.com/platformsh/config-reader-php) library.
+### Traditional
+```bash
+$ wget http://getcomposer.org/composer.phar
+$ php composer.phar create-project sylius/sylius-standard project
+$ cd project
+$ yarn install
+$ yarn build
+$ php bin/console sylius:install
+$ symfony serve
+$ open http://localhost:8000/
+```
 
-## Resources
+For more detailed instruction please visit [installation chapter in our docs](https://docs.sylius.com/en/1.10/book/installation/installation.html).
 
-- [Sylius](https://sylius.com)
-- [Sylius documentation](https://docs.sylius.com/en/latest/)
-- [Platform.sh deployment docs](https://docs.sylius.com/en/latest/cookbook/deployment/platform-sh.html)
-- [Sylius Plus installation guide](https://docs.sylius.com/en/latest/cookbook/deployment/platform-sh.html#how-to-deploy-sylius-plus-to-platform-sh)
-- [Cron jos and additional tips](https://docs.sylius.com/en/latest/cookbook/deployment/platform-sh.html#dive-deeper)
-- [PHP on Platform.sh](https://docs.platform.sh/languages/php.html)
+### Docker
 
+#### Development
+
+Make sure you have installed [Docker](https://docs.docker.com/get-docker/) on your local machine.
+Execute `docker compose up -d` in your favorite terminal and wait some time until the services will be ready. You might want to see docker logs.
+Then enter `localhost` in your browser or execute `open localhost` in your terminal.
+
+#### Production
+
+The simplest way to deploy your Sylius store via Docker is via `docker-compose.prod.yml` configuration file.
+To do that you need to install [Docker](https://docs.docker.com/get-docker/) on your VPS and define `MYSQL_PASSWORD` environment.
+Then execute `docker compose -f docker-compose.prod.yml up -d` command in your terminal. The `MYSQL_PASSWORD` env will be automatically
+applied to the rest of the config.
+
+> When using a Virtual Private Server (VPS) we recommend having at least 2GB of RAM memory
+
+**Quick deploy:**
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+export MYSQL_PASSWORD=SLyPJLaye7
+
+docker compose -f docker-compose.prod.yml up -d
+docker compose -f docker-compose.prod.yml exec php bin/console sylius:fixtures:load --no-interaction
+```
+
+## Troubleshooting
+
+If something goes wrong, errors & exceptions are logged at the application level:
+
+```bash
+$ tail -f var/log/prod.log
+$ tail -f var/log/dev.log
+```
+
+## Contributing
+
+Would like to help us and build the most developer-friendly eCommerce framework? Start from reading our [Contribution Guide](https://docs.sylius.com/en/latest/contributing/)!
+
+## Stay Updated
+
+If you want to keep up with the updates, [follow the official Sylius account on Twitter](http://twitter.com/Sylius) and [like us on Facebook](https://www.facebook.com/SyliusEcommerce/).
+
+## Bug Tracking
+
+If you want to report a bug or suggest an idea, please use [GitHub issues](https://github.com/Sylius/Sylius/issues).
+
+## Community Support
+
+Get Sylius support on [Slack](https://sylius.com/slack), [Forum](https://forum.sylius.com/) or [Stack Overflow](https://stackoverflow.com/questions/tagged/sylius).
+
+## MIT License
+
+Sylius is completely free and released under the [MIT License](https://github.com/Sylius/Sylius/blob/master/LICENSE).
+
+## Authors
+
+Sylius was originally created by [Paweł Jędrzejewski](http://pjedrzejewski.com).
+See the list of [contributors from our awesome community](https://github.com/Sylius/Sylius/contributors).
