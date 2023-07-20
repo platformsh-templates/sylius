@@ -53,13 +53,16 @@
         "phpstan/phpstan-webmozart-assert": "^1.1",
         "phpunit/phpunit": "^8.5",
         "polishsymfonycommunity/symfony-mocker-container": "^1.0",
-        "rector/rector": "^0.14.6",
         "stripe/stripe-php": "^6.43",
         "sylius-labs/coding-standard": "^4.0",
+        "sylius/sylius-rector": "^1.0",
         "symfony/browser-kit": "^5.4 || ^6.0",
         "symfony/debug-bundle": "^5.4 || ^6.0",
         "symfony/intl": "^5.4 || ^6.0",
         "symfony/web-profiler-bundle": "^5.4 || ^6.0"
+    },
+    "conflict": {
+        "symfony/framework-bundle": "6.2.8"
     },
     "config": {
         "preferred-install": {
@@ -110,6 +113,7 @@
             "@auto-scripts"
         ],
         "post-create-project-cmd": [
+            "@php -r \"file_put_contents('.gitignore', str_replace('/composer.lock' . PHP_EOL, '', file_get_contents('.gitignore')));\"",
             "@php bin/console sylius:inform-about-gus --ansi",
             "@php bin/console sylius:show-available-plugins --ansi"
         ],
@@ -127,6 +131,7 @@
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-intl-idn": "*",
         "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php54": "*",
         "symfony/polyfill-php55": "*",
         "symfony/polyfill-php56": "*",
