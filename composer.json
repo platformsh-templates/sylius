@@ -27,6 +27,7 @@
         "php": "^8.0",
         "platformsh/symfonyflex-bridge": "^2.7",
         "sylius/paypal-plugin": "^1.5",
+        "sylius/state-machine-abstraction": "^1.14",
         "sylius/sylius": "^1.12",
         "symfony/dotenv": "^5.4 || ^6.0",
         "symfony/flex": "^2.1",
@@ -70,11 +71,13 @@
         },
         "sort-packages": true,
         "allow-plugins": {
-            "symfony/flex": true,
+            "composer/installers": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
+            "php-http/discovery": true,
             "phpstan/extension-installer": true,
-            "symfony/thanks": false,
-            "symfony/runtime": true
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/thanks": false
         }
     },
     "extra": {
