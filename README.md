@@ -1,15 +1,13 @@
+> ## Archived template
+>
+> This template has been archived. You can still use it as a reference, but it is no longer receiving regular updates from our team.
+> For the current version of a Sylius template, please see https://github.com/Sylius/Sylius-Standard/
 <br />
-<!-- Platform.sh logo left -->
-<p align="left">
-    <a href="https://platform.sh">
-        <img src="https://platform.sh/logos/redesign/Platformsh_logo_black.svg" width="150px">
-    </a>
-</p>
-<br /><br />
+
 <!-- Template logo -->
 <p align="center">
-    <a href="https://github.com/directus/directus">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" alt="Logo" width="300">
+    <a href="https://github.com/Sylius/Sylius-Standard/">
+        <img src="https://demo.sylius.com/build/shop/images/logo.72a9465e.png" alt="Logo" width="300">
     </a>
 </p>
 <!-- Template title -->
@@ -19,7 +17,7 @@
 <!-- Deploy on Platform.sh button -->
 <br />
 <p align="center">
-    <a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/template-builder/master/templates/sylius/.platform.template.yaml&utm_content=sylius&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
+    <a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/templates-external/master/templates/sylius.template.yaml&utm_content=sylius&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
         <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="175px" />
     </a>
 </p>
